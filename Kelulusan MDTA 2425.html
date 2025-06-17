@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengumuman Kelulusan Siswa MDTA Nurul Yaqin 2024/2025</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4ff;
+            color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            inline-size: 200px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-block-start: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+
+<h1>Pengumuman Kelulusan Siswa MDTA Nurul Yaqin 2024/2025</h1>
+<input type="text" id="examNumberInput" placeholder="Masukkan nomor ujian anda">
+<button onclick="checkGraduation()">Cek Kelulusan</button>
+
+
+<div id="result" class="result"></div>
+
+
+<script>
+    // Predefined data: examNumber => pass status and student name
+    const graduationData = {
+        "07-081-001": { name: "AISYAH AFIQAH ERNADIANA", passed: true },
+        "07-081-002": { name: "FELISA HENRITA", passed: true },
+        "07-081-003": { name: "MARDIAH HAYATI", passed: true },
+        "07-081-004": { name: "MELSY MAY SALSABILLAH", passed: true },
+        "07-081-005": { name: "MUHAMMAD DIEGO AXELO", passed: true },
+        "07-081-006": { name: "PRINCES SHANAYA FIRDAUS", passed: true },
+        "07-081-007": { name: "SAHLI DEVANO MAYENDRA", passed: false },
+        "07-081-008": { name: "SYAKIA RAMADHANI", passed: true },
+        "07-081-009": { name: "SELENA WIDALF KHANZA", passed: true },
+        "07-081-010": { name: "VINO TRI ARJUNA", passed: true },
+        "07-081-011": { name: "GAVIN ALVARO", passed: true },
+        "07-081-012": { name: "TIRTA ANDIKA", passed: true },
+        "07-081-013": { name: "RAT MAYTA", passed: true },
+        "07-081-014": { name: "BUNGA RUBY NUR AVIVAH", passed: true },
+        "07-081-015": { name: "YHARA AQILA ALFA", passed: false }
+
+        // Add all students here with their exam numbers and pass/fail status
+    };
+
+
+    function checkGraduation() {
+        const examNumber = document.getElementById('examNumberInput').value.trim();
+        const resultDiv = document.getElementById('result');
+
+
+        if (!examNumber) {
+            resultDiv.textContent = "Nomor ujian tidak boleh kosong.";
+            return;
+        }
+
+
+        const student = graduationData[examNumber];
+        if (student) {
+            if (student.passed) {
+                resultDiv.textContent = `Selamat, ${student.name}! Anda lulus.`;
+            } else {
+                resultDiv.textContent = `Maaf, ${student.name}. Anda belum lulus.`;
+            }
+        } else {
+            resultDiv.textContent = "Nomor ujian tidak ditemukan.";
+        }
+    }
+</script>
+
+
+</body>
+</html>
+
+
+
